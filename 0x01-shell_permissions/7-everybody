@@ -1,2 +1,3 @@
 #!/bin/bash
-chmode a+x
+chmod a+x
+

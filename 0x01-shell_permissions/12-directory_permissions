@@ -1,2 +1,2 @@
 #!/bin/bas
-mkdir mi_dir chmod 751
+mkdir -m mi_dir 751

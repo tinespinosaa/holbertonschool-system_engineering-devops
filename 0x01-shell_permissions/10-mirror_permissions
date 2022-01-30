@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod rwxrwxrwx=hello olleh 
+chmod 753=hello olleh 

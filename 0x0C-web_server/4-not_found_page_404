@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 ### Create simple error 404 page.
 echo "Ceci n'est pas une page" > /var/www/html/error_simple.html
 ### The redirection to Error page.

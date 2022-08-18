@@ -1,0 +1,6 @@
+### Create simple error 404 page.
+echo "Ceci n'est pas une page" > /var/www/html/error_simple.html
+### The redirection to Error page.
+sudo sed -i "s/^server\s{/server {\n\terror_page 404 \/error_simple.html;/1" /etc/nginx/sites-available/default
+### Start service nginx.
+sudo service nginx restart

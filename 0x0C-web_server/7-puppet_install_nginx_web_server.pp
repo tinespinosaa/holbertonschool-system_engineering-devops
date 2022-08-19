@@ -1,9 +1,8 @@
-exec { 'resource title':
-
-command => 'sudo apt-get -y update ;\
-           sudo apt install -y nginx ;\
-           sudo echo 'Hello World' | sudo tee /var/www/html/index.nginx-debian.html ;\
-           new_string="a location /redirect_me\n \t{ \n\t rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent; \n \t}" ;\
-	   sudo sed -i "/server_name _;/$new_string" /etc/nginx/sites-available/default ;\
-           sudo service nginx restart',
+exec {'install':
+  provider => shell,
+  command  => 'sudo apt-get -y update ;\
+               sudo apt-get -y install nginx ;\
+               echo "Hello World" | sudo tee /var/www/html/index.nginx-debian.html ;\
+               sudo sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/tinespinosaa permanent;/" /etc/nginx/sites-available/default ;\
+               sudo service nginx start',
 }

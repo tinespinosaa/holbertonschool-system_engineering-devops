@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-''' Write a recursive function that queries the Reddit API,
-    parses the title of all hot articles
-'''
-
+""" Count it! """
 from requests import get
 
 REDDIT = "https://www.reddit.com/"
@@ -10,11 +7,11 @@ HEADERS = {'user-agent': 'my-app/0.0.1'}
 
 
 def count_words(subreddit, word_list, after="", word_dic={}):
-    '''
+    """
     Returns a list containing the titles of all hot articles for a
     given subreddit. If no results are found for the given subreddit,
     the function should return None.
-    '''
+    """
     if not word_dic:
         for word in word_list:
             word_dic[word] = 0
@@ -24,7 +21,7 @@ def count_words(subreddit, word_list, after="", word_dic={}):
         word_list = sorted(word_list, key=lambda x: (-x[1], x[0]))
         for w in word_list:
             if w[1]:
-                print("{}: {}".format(w[0], w[1]))
+                print("{}: {}".format(w[0].lower(), w[1]))
         return None
 
     url = REDDIT + "r/{}/hot/.json".format(subreddit)
